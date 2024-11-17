@@ -1,0 +1,1483 @@
+/* Botão 1 */
+.button1 {
+    min-width: 120px;
+    position: relative;
+    cursor: pointer;
+    padding: 12px 17px;
+    border: 0;
+    border-radius: 7px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: radial-gradient(
+      ellipse at bottom,
+      rgb(0, 48, 100) 0%,
+      rgb(0, 26, 49) 45%
+    );
+    color: rgb(255, 255, 255, 0.66);
+    transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button1::before {
+    content: "";
+    width: 70%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0.2;
+    transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button1:hover {
+    color: rgb(255, 255, 255, 1);
+    transform: scale(1.1) translateY(-3px);
+}
+
+.button1:hover::before {
+    opacity: 1;
+}
+
+/* Botão Arrows */
+.button {
+    font-size: 20px;
+    background-color: white;
+    color: black;
+    width: 45px;
+    height: 45px;
+    opacity: 0.75;
+    border: 1px solid #e7eae8;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.button:hover {
+    animation: bounce_513 1s infinite;
+}
+
+@keyframes bounce_513 {
+    0%,
+    100% {
+        transform: translateX(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateX(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* Reset e Fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #fff;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 10%;
+    align-items: center;
+    z-index: 2;
+}
+
+header img {
+    width: 50px;
+}
+
+header nav ul {
+    display: flex;
+    grid-template-columns: repeat(3, 500px);
+}
+
+/* Seções */
+section {
+    background-image: radial-gradient(#2c2e99, #000);
+    height: 100vh;
+    position: relative;
+}
+
+section .list {
+    width: 70vw;
+    margin: auto;
+    height: 100%;
+    position: relative;
+}
+
+section .list .item {
+    position: absolute;
+    inset: 0;
+    transform: translateX(-50%);
+    max-width: 100%;
+}
+
+section .list .item .car-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+}
+
+section .list .item .car-img img {
+    width: 100%;
+    transform: rotate(-30deg);
+}
+
+section .list .content {
+    position: absolute;
+    right: 100px;
+    width: 70%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+section .list .content h2 {
+    line-height: 1em;
+    font-family: "League Gothic", sans-serif;
+    color: #00FF00;
+}
+
+section .list .content .description {
+    color: #00FF00;
+    font-size: 12px;
+    text-align: right;
+    max-width: 400px;
+}
+
+/* Arrows */
+section .arrows {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+}
+
+section .arrows button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+/* Indicadores */
+section .indicators {
+    width: 70vw;
+    margin-top: 5rem;
+}
+
+section ul {
+    position: absolute;
+    top: 100%;
+    right: 41%;
+    height: 150px;
+    width: 90vw;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
+
+section ul li {
+    width: 50px;
+    height: 5px;
+    background-color: #00FF00;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+section ul li.active {
+    background-color: #000;
+}
+
+section .list::before {
+    content: '';
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 50%;
+    border-top: 1px solid #fff;
+}
+
+section .list .item .car-img::before {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100px;
+    top: 150%;
+    left: 50px;
+    border-radius: 50%;
+    filter: blur(30px);
+}
+
+section .list {
+    --calculation: 1;
+}
+
+section .list .item {
+    transform: translateX(calc(100vw * var(--calculation)));
+    transition: 0.5s;
+    opacity: 0;
+}
+
+section .list .item .car-img img {
+    transform: rotate(0);
+    transition: 0.5s;
+    transition-delay: 0.3s;
+}
+
+section .list .content .car-information,
+section .list .content h2,
+section .list .content .description,
+section .list .content .information {
+    transform: translateX(calc(200px * var(--calculation)));
+    transition: 0.7s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+
+section .list .content h2 {
+    transition-delay: 0.5s;
+}
+
+section .list .content .description {
+    transition-delay: 0.7s;
+}
+
+section .list .item.active {
+    transform: translateX(0);
+    transition: 0.5s;
+    opacity: 1;
+}
+
+section .list .item.active .car-img img {
+    transform: rotate(-20deg);
+}
+
+section .list .item.active .content .car-information,
+section .list .item.active .content h2,
+section .list .item.active .description,
+section .list .item.active .information {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Media Queries */
+/* Responsividade para largura entre 360px e 767px */
+@media (min-width: 360px) and (max-width: 767px) {
+    header {
+        grid-template-columns: 1fr;
+    }
+
+    header img {
+        width: 10rem;
+    }
+
+    header nav ul {
+        grid-template-columns: 1fr;
+    }
+
+    section .list {
+        width: 95vw;
+    }
+
+    section .list .content {
+        right: 20px;
+        width: 90%;
+    }
+
+    section .list .car-information {
+        font-size: 2rem;
+    }
+
+    section .list .description {
+        font-size: 0.8rem;
+        margin-top: 15rem;
+    }
+
+    section .list .car-img {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section .list .car-img img {
+        width: auto;
+        height: auto;
+        position: absolute;
+        left: 15%;
+        transform: translate(50%, -50%);
+    }
+
+    section .arrows {
+        width: 95vw;
+    }
+
+    section .arrows button {
+        width: 35px;
+        height: 35px;
+    }
+
+    section .arrows button img {
+        width: 1.5rem;
+    }
+
+    section .indicators {
+        width: 95vw;
+        margin-top: 5rem;
+    }
+
+    section ul {
+        height: auto;
+        right: 20%;
+    }
+
+    section ul li {
+        width: 30px;
+        height: 4px;
+    }
+}
+
+/* Responsividade para largura entre 768px e 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    header img {
+        width: 12rem;
+    }
+
+    section .list {
+        width: 85vw;
+    }
+
+    section .list .content {
+        width: 80%;
+        right: 30px;
+    }
+
+    section .list .car-information {
+        font-size: 2.5rem;
+    }
+
+    section .list .description {
+        font-size: 1rem;
+        margin-top: 10rem;
+    }
+
+    section .list .car-img img {
+        width: auto;
+        height: auto;
+        position: absolute;
+        left: 20%;
+        transform: translate(50%, -50%);
+    }
+
+    section .arrows button {
+        width: 40px;
+        height: 40px;
+    }
+
+    section .arrows button img {
+        width: 1.8rem;
+    }
+}
+
+/* Responsividade para largura entre 1024px e 1439px */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    header img {
+        width: 15rem;
+    }
+
+    section .list {
+        width: 75vw;
+    }
+
+    section .list .content {
+        width: 75%;
+        right: 40px;
+    }
+
+    section .list .car-information {
+        font-size: 3rem;
+    }
+
+    section .list .description {
+        font-size: 1.2rem;
+        margin-top: 8rem;
+    }
+
+    section .list .car-img img {
+        width: auto;
+        height: auto;
+        position: absolute;
+        left: 25%;
+        transform: translate(50%, -50%);
+    }
+
+    section .arrows button {
+        width: 45px;
+        height: 45px;
+    }
+
+    section .arrows button img {
+        width: 2rem;
+    }
+}
+
+/* Responsividade para largura entre 1440px e 1919px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    header img {
+        width: 18rem;
+    }
+
+    section .list {
+        width: 70vw;
+    }
+
+    section .list .content {
+        width: 70%;
+        right: 50px;
+    }
+
+    section .list .car-information {
+        font-size: 3.5rem;
+    }
+
+    section .list .description {
+        font-size: 1.4rem;
+        margin-top: 6rem;
+    }
+
+    section .list .car-img img {
+        width: auto;
+        height: auto;
+        position: absolute;
+        left: 30%;
+        transform: translate(50%, -50%);
+    }
+
+    section .arrows button {
+        width: 50px;
+        height: 50px;
+    }
+
+    section .arrows button img {
+        width: 2.2rem;
+    }
+}
+
+/* Responsividade para largura entre 1920px e 2560px */
+@media (min-width: 1920px) and (max-width: 2560px) {
+    header img {
+        width: 20rem;
+    }
+
+    section .list {
+        width: 65vw;
+    }
+
+    section .list .content {
+        width: 65%;
+        right: 60px;
+    }
+
+    section .list .car-information {
+        font-size: 4rem;
+    }
+
+    section .list .description {
+        font-size: 1.6rem;
+        margin-top: 5rem;
+    }
+
+    section .list .car-img img {
+        width: auto;
+        height: auto;
+        position: absolute;
+        left: 35%;
+        transform: translate(50%, -50%);
+    }
+
+    section .arrows button {
+        width: 55px;
+        height: 55px;
+    }
+
+    section .arrows button img {
+        width: 2.5rem;
+    }
+}
+
+
+    section .arrows {
+        width: 95vw;
+    }
+
+    section .arrows button {
+        width: 35px;
+        height: 35px;
+    }
+
+    section .arrows button img {
+        width: 1.5rem;
+    }
+
+    section .indicators {
+        width: 95vw;
+        margin-top: 5rem;
+    }
+
+    section ul {
+        height: auto;
+        right: 20%;
+    }
+
+    section ul li {
+        width: 30px;
+        height: 5px;
+    }
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    header {
+        grid-template-columns: 1fr 1fr; /* Duas colunas */
+        
+        img {
+            width: 15rem; /* Tamanho ajustado para a imagem */
+        }
+
+        nav ul {
+            grid-template-columns: repeat(2, 1fr); /* Duas colunas para os links */
+        }
+    }
+
+    section {
+        .list {
+            width: 90vw; /* Largura da lista ajustada */
+            
+            .content {
+                right: 15px; /* Ajusta a posição */
+                width: 85%; /* Largura do conteúdo ajustada */
+                
+                h2 {
+                    font-size: 2rem; /* Tamanho da fonte ajustado */
+                }
+                .car-information{
+                    font-size: 4rem; /* Ajusta a descrição */
+                    /* Ajusta a margem superior */
+                }
+                .description {
+                    font-size: 1.3rem; /* Ajusta a descrição */
+                    margin-top: 18rem; /* Ajusta a margem superior */
+                }
+            }
+        }
+        .list .car-img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .list .car-img img {
+            width: auto;
+            height: auto;
+            position: relative; /* Ajustado para que o transform não seja necessário */
+            left: 5rem; /* Centraliza horizontalmente */
+            /* Se precisar centralizar verticalmente, use margin: auto; */
+        }
+        
+        .arrows {
+            width: 90vw; /* Ajusta a largura das setas */
+
+            button {
+                width: 40px; /* Largura dos botões ajustada */
+                height: 40px; /* Altura dos botões ajustada */
+
+                img {
+                    width: 1.8rem; /* Largura da imagem das setas ajustada */
+                }
+            }
+        }
+
+        .indicators {
+            width: 90vw; /* Ajusta a largura dos indicadores */
+            margin-top: 4rem; /* Ajusta a margem superior */
+        }
+
+        ul {
+            height: auto; /* Ajusta a altura da lista */
+            right: 15%; /* Ajusta a posição */
+            
+            li {
+                width: 40px; /* Largura dos itens da lista ajustada */
+                height: 8px; /* Altura dos itens da lista ajustada */
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    header {
+        grid-template-columns: 1fr 1fr 1fr; /* Três colunas */
+        
+        img {
+            width: 20rem; /* Tamanho ajustado para a imagem */
+        }
+
+        nav ul {
+            grid-template-columns: repeat(3, 1fr); /* Três colunas para os links */
+        }
+    }
+
+    section {
+        .list {
+            width: 85vw; /* Largura da lista ajustada */
+            
+            .content {
+                right: 10px; /* Ajusta a posição */
+                width: 80%; /* Largura do conteúdo ajustada */
+                
+            .car-information{
+                font-size: 3rem; /* Ajusta a descrição */
+            }
+
+                .description {
+                    font-size: 1.2rem; /* Ajusta a descrição */
+                    margin-top: 5rem; /* Ajusta a margem superior */
+                }
+            }
+        }
+        .list .car-img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .list .car-img img {
+            width: auto;
+            height: auto;
+            position: relative; /* Mantido para centralizar */
+            left: 0; /* Centraliza horizontalmente */
+        }
+        
+        .arrows {
+            width: 85vw; /* Ajusta a largura das setas */
+
+            button {
+                width: 45px; /* Largura dos botões ajustada */
+                height: 45px; /* Altura dos botões ajustada */
+
+                img {
+                    width: 2rem; /* Largura da imagem das setas ajustada */
+                }
+            }
+        }
+
+        .indicators {
+            width: 85vw; /* Ajusta a largura dos indicadores */
+            margin-top: 3rem; /* Ajusta a margem superior */
+        }
+
+        ul {
+            height: auto; /* Ajusta a altura da lista */
+            right: 10%; /* Ajusta a posição */
+            
+            li {
+                width: 50px; /* Largura dos itens da lista ajustada */
+                height: 10px; /* Altura dos itens da lista ajustada */
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1440px) and (max-width: 1919px){
+    header {
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Quatro colunas */
+        
+        img {
+            width: 25rem; /* Tamanho ajustado para a imagem */
+        }
+
+        nav ul {
+            grid-template-columns: repeat(4, 1fr); /* Quatro colunas para os links */
+        }
+    }
+
+    section {
+        .list {
+            width: 80vw; /* Largura da lista ajustada */
+            
+            .content {
+                right: 5px; /* Ajusta a posição */
+                width: 75%; /* Largura do conteúdo ajustada */
+                
+               .car-information{
+                font-size: 3rem;
+                margin-top: 15rem;
+               }
+
+                .description {
+                    font-size: 1.3rem; /* Ajusta a descrição */
+                    margin-top: 0rem; /* Ajusta a margem superior */
+                }
+            }
+        }
+        .list .car-img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .list .car-img img {
+            width: auto;
+            height: auto;
+            position: relative; /* Mantido para centralizar */
+            left: 0; /* Centraliza horizontalmente */
+        }
+        
+        .arrows {
+            width: 80vw; /* Ajusta a largura das setas */
+
+            button {
+                width: 55px; /* Largura dos botões ajustada */
+                height: 55px; /* Altura dos botões ajustada */
+
+                img {
+                    width: 2.5rem; /* Largura da imagem das setas ajustada */
+                }
+            }
+        }
+
+        .indicators {
+            width: 80vw; /* Ajusta a largura dos indicadores */
+            margin-top: 2rem; /* Ajusta a margem superior */
+        }
+
+        ul {
+            height: auto; /* Ajusta a altura da lista */
+            right: 5%; /* Ajusta a posição */
+            
+            li {
+                width: 60px; /* Largura dos itens da lista ajustada */
+                height: 15px; /* Altura dos itens da lista ajustada */
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+    header {
+        grid-template-columns: repeat(4, 1fr); /* Quatro colunas */
+        
+        img {
+            width: 30rem; /* Tamanho ajustado para a imagem */
+        }
+
+        nav ul {
+            grid-template-columns: repeat(4, 1fr); /* Quatro colunas para os links */
+            padding-left: 20px;
+        }
+    }
+
+    section {
+        .list {
+            width: 75vw; /* Largura da lista ajustada */
+            
+            .content {
+                right: 0.5rem; /* Ajusta a posição */
+                width: 70%; /* Largura do conteúdo ajustada */
+                
+                .car-information {
+                    font-size: 3.3rem; /* Tamanho da fonte aumentado */
+                    margin-top: 10rem; /* Ajusta a margem superior */
+                }
+
+                .description {
+                    font-size: 1.5rem; /* Tamanho da descrição aumentado */
+                    margin-top: 10rem; /* Remove a margem superior */
+                }
+            }
+        }
+
+        .list .car-img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .list .car-img img {
+            max-width: 100%; /* Garante que a imagem não ultrapasse a largura disponível */
+            height: auto;
+        }
+        
+        .arrows {
+            width: 85vw; /* Ajusta a largura das setas */
+
+            button {
+                width: 65px; /* Largura dos botões ajustada */
+                height: 65px; /* Altura dos botões ajustada */
+
+                img {
+                    width: 3rem; /* Largura da imagem das setas ajustada */
+                }
+            }
+        }
+
+        .indicators {
+            width: 75vw; /* Ajusta a largura dos indicadores */
+            margin-top: 9rem; /* Ajusta a margem superior */
+        }
+        /* .number{
+            height: 45555;
+            width: 7rem;
+        } */
+        ul {
+            height: auto; /* Corrige a altura para auto */
+            right: 5%; /* Ajusta a posição */
+            
+            li {
+                width: 70px; /* Largura dos itens da lista ajustada */
+                height: 5px; /* Altura dos itens da lista ajustada */
+            }
+        }
+    }
+}
+
+
+
+/* Estilo para a barra de navegação */
+header {
+    background-color: #000000; /* Cor de fundo azul escuro */
+    padding: 10px 20px;
+    width: 100%; /* Garantir que a barra ocupe toda a largura da tela */
+    box-sizing: border-box; /* Garantir que o padding não sobreponha a largura total */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Garantir que o container ocupe toda a largura */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Garantir que a navegação ocupe toda a largura */
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+}
+
+ul li {
+    position: relative; /* Para garantir que o hover funcione corretamente */
+}
+
+ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Cor do texto dos links (branco) */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding: 10px 15px; /* Espaçamento para os links */
+    border-radius: 30px; /* Bordas bem arredondadas */
+    border: 2px solid transparent; /* Adiciona borda sem cor inicialmente */
+    transition: background-color 0.3s, color 0.3s, border 0.3s; /* Transição suave */
+}
+
+ul li a:hover {
+    color: #000000; /* Texto permanece branco ao passar o mouse */
+    background-color: #ffffff; /* Cor de fundo branca ao passar o mouse */
+    border: 2px solid #fff; /* Borda branca ao passar o mouse */
+}
+
+/* Responsividade para telas grandes (1024px a 1439px) */
+@media (max-width: 1439px) {
+    ul li a {
+        font-size: 18px; /* Tamanho da fonte ajustado para telas grandes */
+        padding: 10px 16px; /* Padding ajustado */
+    }
+}
+
+/* Responsividade para telas intermediárias (768px a 1023px) */
+@media (max-width: 1023px) {
+    ul li a {
+        font-size: 16px; /* Ajusta o tamanho da fonte */
+        padding: 8px 14px; /* Padding ajustado */
+    }
+
+    .nav-container {
+        padding: 0 20px; /* Reduz o padding nas laterais */
+    }
+}
+
+/* Responsividade para telas médias (360px a 767px) */
+@media (max-width: 767px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+    ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+    ul li a {
+        font-size: 14px; /* Tamanho da fonte reduzido */
+        padding: 6px 10px; /* Ajuste no padding */
+    }
+}
+
+/* Responsividade para telas pequenas (320px a 359px) */
+@media (max-width: 359px) {
+    .nav-container {
+        padding: 8px;
+    }
+    ul li a {
+        font-size: 12px; /* Fonte reduzida para telas menores */
+        padding: 4px 8px;
+    }
+}
+
+
+
+
+
+.home {
+    display: flex; /* Define o layout como flexbox para alinhar os itens */
+    justify-content: space-between; /* Espaça os itens igualmente, com o máximo possível de espaço entre eles */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    padding: 50px; /* Adiciona um espaçamento de 50px ao redor do conteúdo dentro da div */
+    background-color: #ffffff; /* Define o fundo da seção como branco */
+}
+  
+.home-content {
+    flex: 1; /* Faz com que o conteúdo ocupe o máximo de espaço possível */
+    max-width: 50%; /* Limita a largura máxima do conteúdo a 50% do espaço disponível */
+}
+  
+.home-content h1 {
+    font-size: 2.5rem; /* Define o tamanho da fonte para o título */
+    color: #000000; /* Define a cor do texto como preto */
+}
+  
+.home-content p {
+    font-size: 1.2rem; /* Define o tamanho da fonte para o parágrafo */
+    color: #000000; /* Define a cor do texto como preto */
+}
+  
+.home-content button {
+    background-color: #000000; /* Define a cor de fundo do botão como preto */
+    color: white; /* Define a cor do texto do botão como branco */
+    padding: 10px 20px; /* Define o preenchimento do botão */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Altera o cursor para uma mão ao passar sobre o botão */
+    font-size: 1rem; /* Define o tamanho da fonte do botão */
+}
+  
+.home-content button a {
+    text-decoration: none; /* Remove a linha de sublinhado do link dentro do botão */
+    color: white; /* Define a cor do link dentro do botão como branco */
+}
+  
+.home-image {
+    flex: 1; /* Faz com que a imagem ocupe o máximo de espaço possível */
+    max-width: 110%; /* Limita a largura máxima da imagem a 50% do espaço disponível */
+}
+  
+.home-image img {
+    width: 100%; /* Define a largura da imagem para ocupar 100% do espaço disponível */
+    height: auto; /* Ajusta automaticamente a altura da imagem para manter a proporção */
+    border-radius: 8px; /* Adiciona bordas arredondadas na imagem */
+}
+
+
+
+
+/* Grid da galeria */
+.grid {
+    display: grid; /* Usamos grid para criar um layout flexível e responsivo */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define que as colunas da grid terão no mínimo 200px de largura e ocuparão o máximo de espaço possível conforme o tamanho da tela */
+    gap: 10px; /* Adiciona espaçamento de 10px entre os itens da galeria */
+    padding: 10px; /* Adiciona espaçamento interno em torno da galeria */
+}
+
+/* Estilo para cada item da galeria */
+.gallery-item {
+    overflow: hidden; /* Garante que o conteúdo da imagem não ultrapasse os limites do contêiner */
+    border-radius: 8px; /* Arredonda os cantos dos itens da galeria */
+    cursor: pointer; /* Altera o cursor para uma mão indicando que a imagem é clicável */
+}
+
+/* Estilo para as imagens dentro da galeria */
+.gallery-item img {
+    width: 100%; /* Faz a imagem ocupar 100% da largura do seu contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Faz a imagem cobrir toda a área do contêiner sem distorcer (pode cortar a imagem se necessário) */
+    border-radius: 8px; /* Arredonda os cantos da imagem */
+}
+
+/* Estilos do modal */
+.modal {
+    display: none; /* Inicialmente, o modal está oculto */
+    position: fixed; /* Posiciona o modal de forma fixa na tela */
+    z-index: 1; /* Garante que o modal seja exibido acima de outros elementos */
+    left: 0; /* Alinha o modal à esquerda da tela */
+    top: 0; /* Alinha o modal ao topo da tela */
+    width: 100%; /* Faz com que o modal ocupe 100% da largura da tela */
+    height: 100%; /* Faz com que o modal ocupe 100% da altura da tela */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semitransparente preto */
+    display: flex; /* Centraliza o conteúdo usando flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    overflow: hidden; /* Impede que o conteúdo ultrapasse os limites do modal */
+}
+
+/* Estilo para a imagem dentro do modal */
+.modal-content {
+    display: block; /* Exibe a imagem */
+    margin: 0; /* Remove margens extras */
+    max-width: 80%; /* Define a largura máxima da imagem para 80% da largura da tela */
+    max-height: 80%; /* Define a altura máxima da imagem para 80% da altura da tela */
+    border-radius: 8px; /* Adiciona bordas arredondadas à imagem ampliada */
+    object-fit: contain; /* Ajusta a imagem sem cortar ou distorcer */
+}
+
+/* Estilo para a legenda da imagem (opcional) */
+#caption {
+    text-align: center; /* Centraliza o texto da legenda */
+    color: white; /* Define a cor do texto como branco */
+    padding: 10px; /* Adiciona um espaçamento ao redor da legenda */
+}
+
+/* Estilos para o botão de fechar */
+.close {
+    position: absolute; /* Posiciona o botão de fechar de forma absoluta */
+    top: 15px; /* Alinha o botão de fechar 15px abaixo do topo */
+    right: 35px; /* Alinha o botão de fechar 35px da borda direita */
+    color: white; /* Define a cor do botão de fechar como branco */
+    font-size: 40px; /* Define o tamanho da fonte do botão de fechar */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+    cursor: pointer; /* Altera o cursor para uma mão, indicando que é clicável */
+}
+
+.close:hover, 
+.close:focus {
+    color: #bbb; /* Altera a cor do botão para um tom de cinza claro */
+    text-decoration: none; /* Remove qualquer decoração de texto */
+}
+
+/* Estilos gerais */
+body { 
+    font-family: Arial, Helvetica, sans-serif; /* Define a fonte padrão */
+}
+
+.heading {
+    text-align: center; /* Centraliza o texto do título */
+    margin: 20px 0; /* Adiciona uma margem de 20px acima e abaixo do título */
+}
+
+.gallery-section {
+    padding: 20px; /* Adiciona um espaço interno de 20px em todos os lados */
+    background-color: #f4f4f4; /* Define uma cor de fundo clara para a seção */
+}
+
+.gallery {
+    display: flex; /* Configura como um contêiner flexível */
+    flex-wrap: wrap; /* Permite que os itens da galeria quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os itens da galeria no contêiner */
+}
+
+.gallery-item {
+    margin: 10px; /* Adiciona um espaço de 10px ao redor de cada item */
+}
+
+.gallery-item img {
+    width: 300px; /* Define a largura das imagens como 300px */
+    height: 500px; /* Define a altura das imagens como 500px */
+    object-fit: cover; /* Ajusta a imagem para cobrir a área sem distorção */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar o mouse */
+    border-radius: 8px; /* Adiciona bordas arredondadas às imagens */
+}
+
+  
+  .modal {
+    /* Estiliza o modal, que é exibido ao clicar em uma imagem */
+    display: none; /* Inicialmente, o modal está oculto */
+    position: fixed; /* Fixa o modal na tela para que não role */
+    z-index: 1; /* Define a camada do modal acima do conteúdo normal */
+    padding-top: 60px; /* Adiciona 60px de espaço superior */
+    left: 0; /* Alinha o modal com o lado esquerdo da tela */
+    top: 0; /* Alinha o modal com o topo da tela */
+    width: 100%; /* Define a largura do modal como 100% da tela */
+    height: 100%; /* Define a altura do modal como 100% da tela */
+    overflow: auto; /* Adiciona rolagem se o conteúdo for maior que a tela */
+    background-color: rgba(0, 0, 0, 0.9); /* Define o fundo com preto semitransparente */
+  }
+  
+  .modal-content {
+    /* Estiliza o conteúdo de imagem dentro do modal */
+    margin: auto; /* Centraliza a imagem no modal */
+    display: block; /* Exibe a imagem como bloco */
+    width: 80%; /* Define a largura da imagem em 80% da largura do modal */
+    max-width: 700px; /* Define uma largura máxima de 700px para a imagem */
+    border-radius: 8px; /* Adiciona bordas arredondadas à imagem ampliada */
+  }
+  
+  .close {
+    /* Estiliza o botão de fechar (X) do modal */
+    position: absolute; /* Define a posição como absoluta em relação ao modal */
+    top: 3cm; /* Posiciona o botão de fechar a 3cm do topo da tela */
+    right: 35px; /* Posiciona o botão de fechar a 35px da borda direita */
+    color: #fff; /* Define a cor do botão de fechar como branco */
+    font-size: 40px; /* Define o tamanho do texto como 40px */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar o mouse */
+  }
+  
+  .close:hover, 
+  .close:focus {
+    /* Estiliza o botão de fechar ao passar o mouse ou quando está em foco */
+    color: #bbb; /* Altera a cor do botão para um tom de cinza claro */
+    text-decoration: none; /* Remove qualquer decoração de texto */
+  }
+  
+  
+  
+ /* Seção de informações */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Exibição das informações */
+.info-display {
+    display: none; /* Oculto por padrão */
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    color: black; /* Texto em preto */
+}
+
+.info-display.active {
+    display: block; /* Exibe quando ativo */
+}
+
+/* Botões de navegação */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+    top: -2cm; /* Move os botões 2 cm para cima */
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #004d99;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #003366;
+}
+
+/* Centralizar imagens */
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* Reset e configuração geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+/* Seção de contato */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%; /* Sempre ocupa a largura total */
+    max-width: 100%;
+    min-height: 100vh; /* Ocupa pelo menos a altura visível */
+    padding: 5vw 4vw;
+    background-color: #f8f8f8;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: 90vw; /* Evita ultrapassar os limites da tela */
+    max-height: 100vh; /* Garante que não ultrapasse a altura visível */
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.contact-text p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Formulário */
+.contact-form fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form .form-group label {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.contact-form .form-group textarea {
+    resize: vertical;
+}
+
+/* Botão de envio */
+.contact-form button {
+    padding: 10px;
+    background-color: #00796b;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #004d40;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-content {
+        max-width: 95%; /* Mais espaço em telas pequenas */
+    }
+
+    .contact-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-text p {
+        font-size: 1rem;
+    }
+}
+
+
+/*@import*/
+.info-section{
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family:'asap', 'poppins';
+    text-shadow: #000 0 0 10px;
+}
+.conteiner{
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    height: 70vh;
+    /* background: #111; */
+}
+@media(min-width:1024px){
+    .conteiner{
+        flex-direction: row;
+    }
+}
+.item{
+    position: relative;
+    flex: calc(100vw/6);
+    background-size: cover;
+    overflow: saturate(90%);
+    transition: 1s;
+}
+.item::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(25deg, rgba(0,0,0,0,9),rgba(0,0,0,0));
+}
+.item:not(:last-child){
+   border-bottom:1px solid #ccc;
+   animation: borderPulse 5s infinite;
+}
+@media(min-width: 1024px){
+    .item:hover{
+        flex-basis: 75%;
+
+    }
+}
+.item:hover .quote{
+    opacity: 1;
+    transform: translateX(0);
+}
+.item:nth-child(1){
+    background-image: url(../img/legiao_BdOxK5Q4aSGr.webp);
+    background-position: 0% 50%;
+}
+.item:nth-child(2){
+    background-image: url(../img/1_kA60K5Phd7uc.png.webp);
+    background-position: 0% 50%;
+}
+.item:nth-child(3){
+    background-image: url(../img/legiao_BdOxK5Q4aSGr.webp);
+    background-position: 0% 50%;
+}
+
+ }
+
+ 
+
+
+ body{ /* Estiliza o corpo da página */
+    font-family: Arial, Helvetica, sans-serif; /* Define a fonte como Arial, Helvetica, ou uma fonte sem serifa */
+  }
+  .heading{ /* Estiliza elementos com a classe heading */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona uma margem de 20 pixels acima e abaixo */
+  }
+  .banner{ /* Estiliza elementos com a classe banner */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona uma margem de 20 pixels acima e abaixo */
+  }
+  .banner img{ /* Estiliza imagens dentro de elementos com a classe banner */
+    width: 100%; /* Define a largura como 100% do contêiner */
+    max-width: 1000px; /* Define a largura máxima como 800 pixels */
+    height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+  }
+ 
+
+
+
+  .footer {
+    background-color: #f0f0f0; /* Fundo claro para contraste */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-text {
+    color: blue; /* Texto azul */
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-link {
+    text-decoration: none;
+    color: blue; /* Link azul */
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .footer-link:hover {
+    color: darkblue; /* Cor mais escura ao passar o mouse */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 767px) {
+    .footer-text {
+      font-size: 14px;
+    }
+  
+    .footer-link {
+      font-size: 14px;
+    }
+  }
+  

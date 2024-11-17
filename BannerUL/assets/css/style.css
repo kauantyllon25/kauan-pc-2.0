@@ -1,0 +1,63 @@
+body{ /* Estiliza o corpo da página */
+  font-family: Arial, Helvetica, sans-serif; /* Define a fonte como Arial, Helvetica, ou uma fonte sem serifa */
+}
+.heading{ /* Estiliza elementos com a classe heading */
+  text-align: center; /* Centraliza o texto */
+  margin: 20px 0; /* Adiciona uma margem de 20 pixels acima e abaixo */
+}
+.banner{ /* Estiliza elementos com a classe banner */
+  text-align: center; /* Centraliza o texto */
+  margin: 20px 0; /* Adiciona uma margem de 20 pixels acima e abaixo */
+}
+.banner img{ /* Estiliza imagens dentro de elementos com a classe banner */
+  width: 100%; /* Define a largura como 100% do contêiner */
+  max-width: 1000px; /* Define a largura máxima como 800 pixels */
+  height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+}
+.gallery { /* Estiliza elementos com a classe gallery */
+  display: flex; /* Define como contêiner flexível */
+  flex-wrap: wrap; /* Permite que os itens internos se quebrem em várias linhas */
+  justify-content: center; /* Centraliza os itens filhos */
+}
+.gallery-item { /* Estiliza elementos com a classe gallery-item */
+  margin: 10px; /* Adiciona uma margem de 10 pixels */
+}
+.gallery-item img { /* Estiliza imagens dentro de elementos com a classe gallery-item */
+  width: 200px; /* Define a largura como 200 pixels */
+  height: 150px; /* Define a altura como 150 pixels */
+  object-fit: cover; /* Ajusta a imagem para cobrir a área sem distorção */
+  cursor: pointer; /* Muda o cursor para um ponteiro ao passar o mouse */
+}
+.modal { /* Estiliza elementos com a classe modal */
+  display: none; /* Torna o modal invisível por padrão */
+  position: fixed; /* Define a posição como fixa */
+  z-index: 1; /* Define a profundidade de camada */
+  padding-top: 60px; /* Adiciona 60 pixels de preenchimento no topo */
+  left: 0; /* Alinha à esquerda */
+  top: 0; /* Alinha ao topo */
+  width: 100%; /* Define a largura como 100% da tela */
+  height: 100%; /* Define a altura como 100% da tela */
+  overflow: auto; /* Adiciona uma barra de rolagem se o conteúdo ultrapassar o tamanho da tela */
+  background-color: rgb(0,0,0); /* Define a cor de fundo como preta */
+}
+.modal-content { /* Estiliza elementos com a classe modal-content */
+  margin: auto; /* Centraliza horizontalmente */
+  display: block; /* Define como bloco */
+  width: 80%; /* Define a largura como 80% do contêiner */
+  max-width: 700px; /* Define a largura máxima como 700 pixels */
+}
+.close { /* Estiliza elementos com a classe close */
+  position: absolute; /* Define a posição como absoluta */
+  top: 15px; /* Alinha 15 pixels do topo */
+  right: 35px; /* Alinha 35 pixels da direita */
+  color: #fff; /* Define a cor do texto como branca */
+  font-size: 40px; /* Define o tamanho da fonte como 40 pixels */
+  font-weight: bold; /* Define a fonte como negrito */
+  transition: 0.3s; /* Define a transição das propriedades como 0.3 segundos */
+}
+.close:hover, /* Estiliza elementos com a classe close ao passar o mouse */
+.close:focus { /* Estiliza elementos com a classe close quando estão em foco */
+  color: #bbb; /* Muda a cor do texto para cinza claro */
+  text-decoration: none; /* Remove a decoração do texto */
+  cursor: pointer; /* Muda o cursor para um ponteiro */
+}
